@@ -15,7 +15,10 @@ app.use(bodyParser.json());
 
 //Rotas
 app.get('/', function(req, res){
-    res.render('home')
+    Post.findAll({order: [['id', 'DESC']]}).then(function(data){
+        console.log(data);
+        res.render('home',{data: data})
+    })
 })
 
 app.get('/cad', function (req, res) {
@@ -33,6 +36,13 @@ app.post('/add', function (req, res) {
    })
 });
 
+app.get('/deletar/:id', function (req, res) {
+   Post.destroy({where: {'id':req.params.id}}).then(function(){
+    res.redirect('/')
+   }).catch(function (err) {
+    res.send("Esta postagem não existe")
+   })
+})
 
 app.listen(8000, function () {
     console.log('start servidor');
