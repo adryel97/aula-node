@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.2",
+    "nodemon": "^2.0.14",
+    "parser": "^0.1.4",
+    "sequelize": "^6.7.0"
+  },
+  "scripts": {
+    "dev": "nodemon"
+  }
+}
